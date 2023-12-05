@@ -1,0 +1,154 @@
+@import url(https://fonts.googleapis.com/css?family=Nosifer);
+@import url(https://fonts.googleapis.com/css?family=Black+Ops+One);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(118, 186, 246);
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+}
+h1{
+    margin: 50px;
+    font-size: 50px;
+    font-family:'Black Ops One';
+}
+.buscar{
+    margin-left: 50px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    border-style: double;
+    border-radius: 25px;
+    box-shadow: 2px 7px 7px rgba(3, 51, 226, 0.456);
+}
+.container{
+    display: grid;
+    grid-template-rows: 1fr;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+  
+}
+.lista_pokemon{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+.lista2_pokemon{
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: flex-start;
+}
+.team1 label{
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    transform: translate(20%, 20%);
+    cursor: pointer;
+}
+.team2 label{
+    margin: 0;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 250px;
+    height: 250px;
+    transform: translate(20%, 20%);
+    cursor: pointer;
+}
+.card{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 800ms;
+    border-radius: 25px;
+    
+}
+.card .front{
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    line-height: 20px;
+    font-family: Nosifer;
+    font-size: 10px;
+}
+.card div {
+    position: absolute;
+    line-height: 35px;
+    height: 100%;
+    width: 100%;
+    background: #FFF;
+    text-align: left;
+    backface-visibility: hidden;
+}
+.card .back {
+    padding:25px;
+    font-family: Nosifer;
+    font-size: 10px;
+    background: #222;
+    color: #FFF;
+    transform: rotateX(180deg);
+    border-radius: 25px;
+}
+
+.team1:hover .card, .team2:hover .card{
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(226, 3, 3, 0.456);
+}
+.team1:hover .back, .team2:hover .back {
+    box-shadow: 0 20px 20px rgba(226, 3, 3, 0.456);
+
+}
+img{
+    padding: 25px;
+    width: 200px;
+    height: auto;
+    font-family: Nosifer;
+    border-radius: 50%;
+    box-shadow: 0 15px 15px rgba(226, 3, 3, 0.456);
+
+}
+
+input{
+    display: none;
+}
+:checked + .card{
+    transform: rotateX(180deg);
+}
+
+.team1:hover :checked + .card, .team2:hover :checked + .card {
+    transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+#vs{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-left: 50px;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    background: #FFF;
+    border-style: double;
+    border-radius: 25px;
+    box-shadow: 2px 7px 7px rgba(3, 51, 226, 0.456);
+}
+

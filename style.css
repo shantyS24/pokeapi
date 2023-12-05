@@ -1,0 +1,112 @@
+@import url(https://fonts.googleapis.com/css?family=Nosifer);
+@import url(https://fonts.googleapis.com/css?family=Black+Ops+One);
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    background-color: rgb(118, 186, 246);
+    font-family: Arial, sans-serif;
+}
+h1{
+    margin: 50px;
+    font-size: 50px;
+    font-family:'Black Ops One';
+}
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 150px;
+    height: 50px;
+    font-size: 20px;
+    border-style: double;
+    border-radius: 25px;
+    box-shadow: 2px 7px 7px rgba(3, 51, 226, 0.456);
+}
+.lista_pokemon{
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+.cards_pokemon label{
+    margin: 0;
+    transform-style: preserve-3d;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    transform: translate(20%, 20%);
+    cursor: pointer;
+}
+.card{
+    position: relative;
+    height: 100%;
+    width: 100%;
+    transform-style: preserve-3d;
+    transition: all 800ms;
+    border-radius: 25px;
+    
+}
+.card .front{
+    padding:5px;
+    display:grid;
+    justify-content: center;
+    align-items: center;
+    border-radius: 25px;
+    line-height: 20px;
+    font-family: Nosifer;
+    font-size: 15px;
+}
+.card div {
+    position: absolute;
+    line-height: 35px;
+    height: 100%;
+    width: 100%;
+    background: #FFF;
+    text-align: left;
+    backface-visibility: hidden;
+}
+.card .back {
+    padding:25px;
+    font-family: Nosifer;
+    font-size: 15px;
+    background: #222;
+    color: #FFF;
+    transform: rotateX(180deg);
+    border-radius: 25px;
+}
+
+.cards_pokemon:hover .card{
+    transform: rotateX(20deg);
+    box-shadow: 0 20px 20px rgba(226, 3, 3, 0.456);
+}
+.cards_pokemon:hover .back{
+    box-shadow: 0 20px 20px rgba(226, 3, 3, 0.456);
+
+}
+img{
+    padding: 25px;
+    width: 250px;
+    height: auto;
+    font-family: Nosifer;
+    border-radius: 50%;
+    box-shadow: 0 15px 15px rgba(226, 3, 3, 0.456);
+
+}
+
+input{
+    display: none;
+}
+:checked + .card{
+    transform: rotateX(180deg);
+}
+
+.cards_pokemon:hover :checked + .card {
+    transform: rotateX(160deg);
+    box-shadow: 0 20px 20px rgba(255,255,255,.2);
+}
+
+

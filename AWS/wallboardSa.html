@@ -1,0 +1,98 @@
+<html>
+<head>
+    <title>Amazon Connect Wallboard</title>
+    <link rel="stylesheet" href="./wallboardStyle.css">
+    <script language="javascript">
+    /*
+        * Set API Gateway invoke URL in the following line.
+        * Remember to include the stage name, region name and the wallboard
+        * definition name.
+        */
+    API_URI  = "https://zrzusipijh.execute-api.us-east-1.amazonaws.com/prod/wallboard/?Wallboard=senawallboard"
+    RefreshInterval = 5000 // How often to retrieve data in milliseconds
+
+    var API_Client = null;
+
+    function GetWallboard() {
+
+        API_Client = new XMLHttpRequest();
+        API_Client.onreadystatechange = ProcessResponse;
+        API_Client.open("get", API_URI);
+        API_Client.setRequestHeader("Content-Type", "application/json");
+        API_Client.timeout = 10000
+        API_Client.ontimeout = ProcessTimeout;
+        API_Client.send();
+
+        setTimeout(GetWallboard, RefreshInterval);
+    }
+
+    function ProcessResponse() {
+        if (API_Client.readyState == XMLHttpRequest.DONE) {
+        try {
+        Result = API_Client.responseText;
+        document.getElementById("wallboard").innerHTML = Result
+        }
+        catch(error) {
+        console.log(error);
+        }
+        }
+    }
+
+    function ProcessTimeout() {
+        console.log("Query to API Gateway timed out")
+    }
+    </script>
+</head>
+<body>
+
+    <div id="wallboard"></div>
+
+    <table label="ConnectWallboardsenawallboard" class="wallboard-senawallboard">
+        <tr>
+            <td label="R1C1" class="R1C1" style="border: 1px solid black; padding: 5px;">
+                <div class="text">QueueName</div>
+            </td>
+            <td label="R1C2" class="R1C2" style="border: 1px solid black; padding: 5px;">
+                <div class="text">Queue Available Agents</div>
+            </td>
+            <td label="R1C3" class="R1C3" style="border: 1px solid black; padding: 5px;">
+                <div class="text">Agents on Called</div>
+            </td>
+            <td label="R1C4" class="R1C4" style="border: 1px solid black; padding: 5px;">
+                <div class="text">Calls Answered</div>
+            </td>
+            <td label="R1C5" class="R1C5" style="border: 1px solid black; padding: 5px;">
+                <div class="text">Calls Abandoned</div>
+            </td>
+        </tr>
+        <tr>
+            <td label="R2C1" class="R2C1" style="border: 1px solid black; padding: 5px;">
+                <div class="text">Queue A</div>
+            </td>
+            <td label="R2C2" class="R2C2" style="border: 1px solid black; padding: 5px;">
+                <div class="data">0</div>
+            </td>
+            <td label="R2C3" class="R2C3" style="border: 1px solid black; padding: 5px;">
+                <div class="data">0</div>
+            </td>
+            <td label="R2C4" class="R2C4" style="border: 1px solid black; padding: 5px;">
+                <div class="data">0</div>
+            </td>
+        </tr>
+        <tr>
+            <td label="R3C1" class="R3C1" style="border: 1px solid black; padding: 5px;">
+                <div class="text">Queue B</div>
+            </td>
+            <td label="R3C2" class="R3C2" style="border: 1px solid black; padding: 5px;">
+                <div class="data">0</div>
+            </td>
+            <td label="R3C3" class="R3C3" style="border: 1px solid black; padding: 5px;">
+                <div class="data">0</div>
+            </td>
+        </tr>
+    </table>
+<script type="text/javascript">
+   GetWallboard();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+@import url(https://fonts.googleapis.com/css?family=Unlock);
+table.wallboard-yyyyyy{
+    width: 50%;
+    table-layout: fixed;
+}
+table.wallboard-yyyyyy td {
+    text-align: center;
+    vertical-align: top;
+}
+.wallboard-senawallboard{
+    background-color: aqua;
+    border-radius: 10px;
+    border: 1px;
+    border-color: black;
+    border-style:double;
+    font-size: 20px;
+    font-family:'Unlock'
+}

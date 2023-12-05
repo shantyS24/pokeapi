@@ -1,0 +1,117 @@
+WallboardTemplateFormatVersion: 1
+Description: Wallboard for SENA testing
+Identifier: senawallboard
+
+Defaults:
+  TextColor: black
+  BackgroundColor: white
+  TextSize: 15
+  Font: sans-serif
+  WarningBackgroundColor: yellow
+  AlertBackgroundColor: red
+
+Sources:
+  - Source: A_AgentsAvailable
+    Description: Available agents for queue A
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:AGENTS_AVAILABLE
+
+  - Source: B_AgentsAvailable
+    Description: Available agents for queue B
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:AGENTS_AVAILABLE
+
+  - Source: A_AgentsOnCall
+    Description: Available agents for queue A
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:AGENTS_ON_CALL
+
+  - Source: B_AgentsOnCall
+    Description: Available agents for queue B
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:AGENTS_ON_CALL
+
+  - Source: A_ContactsHandle
+    Description: Queue Answred Call today
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:CONTACTS_HANDLED
+
+  - Source: B_ContactsHandle
+    Description: Queue Answred Call today
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:CONTACTS_HANDLED
+
+  - Source: A_ContactsAbandoned
+    Description: Queue abandoned Calls
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:CONTACTS_ABANDONED
+
+  - Source: B_ContactsAbandoned
+    Description: Queue Abandoned Calls
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:CONTACTS_ABANDONED
+
+    
+
+Thresholds:
+  - Threshold: A_AbandonedThreshold
+    Reference: A_ContactsAbandoned
+    WarnAbove: 2
+    AlertAbove: 4
+  - Threshold: B_AbandonedThreshold
+    Reference: B_ContactsAbandoned
+    WarnAbove: 3
+    AlertAbove: 5
+
+
+Calculations:
+  - Calculation: A_TotalCalls
+    Formula: A_ContactsHandle+A_ContactsAbandoned
+  - Calculation: B_TotalCalls
+    Formula: B_ContactsHandle+B_ContactsAbandoned
+
+
+Rows:
+  - Row: 1
+    Cells:
+    - Cell: 1
+      Description: Queue Columns
+      Text: QueueName
+    - Cell: 2
+      Description: Queue Agents Available
+      Text: Queue Available Agents
+    - Cell: 3
+      Description: Queue Agents on call
+      Text: Agents on Called
+    - Cell: 4
+      Description: Llamadas Respondidas
+      Text: Calls Answered
+    - Cell: 5
+      Description: Llamadas abandonadas
+      Text: Calls Abandoned
+  - Row: 2
+    Cells:
+    - Cell: 1
+      Description: Queue Name
+      Text: Queue A
+    - Cell: 2
+      Description: Queue A Agent Available
+      Reference: A_AgentsAvailable
+    - Cell: 3
+      Description: Queue A Agents On Call
+      Reference: A_AgentsOnCall
+    - Cell: 4
+      Description: Queue A Calls Answered
+      Reference: A_ContactsHandle
+    - Cell: 5
+      Description: Queue A Calls Abandoned
+      Reference: A_ContactsAbandoned
+  - Row: 3
+    Cells:
+    - Cell: 1
+      Description: Queue Name
+      Text: Queue B
+    - Cell: 2
+      Description: Queue B Agent Available
+      Reference: B_AgentsAvailable
+    - Cell: 3
+      Description: Queue B Agents On Call
+      Reference: B_AgentsOnCall
+    - Cell: 4
+      Description: Queue B Calls Answered
+      Reference: B_ContactsHandle
+    - Cell: 5
+      Description: Queue B Calls Abandoned
+      Reference: B_ContactsAbandoned
