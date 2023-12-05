@@ -4,7 +4,7 @@ Identifier: senawallboard
 
 Defaults:
   TextColor: black
-  BackgroundColor: white
+  BackgroundColor: black
   TextSize: 15
   Font: sans-serif
   WarningBackgroundColor: yellow
@@ -14,7 +14,6 @@ Sources:
   - Source: A_AgentsAvailable
     Description: Available agents for queue A
     Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:AGENTS_AVAILABLE
-
   - Source: B_AgentsAvailable
     Description: Available agents for queue B
     Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:AGENTS_AVAILABLE
@@ -22,7 +21,6 @@ Sources:
   - Source: A_AgentsOnCall
     Description: Available agents for queue A
     Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:AGENTS_ON_CALL
-
   - Source: B_AgentsOnCall
     Description: Available agents for queue B
     Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:AGENTS_ON_CALL
@@ -30,7 +28,6 @@ Sources:
   - Source: A_ContactsHandle
     Description: Queue Answred Call today
     Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:CONTACTS_HANDLED
-
   - Source: B_ContactsHandle
     Description: Queue Answred Call today
     Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:CONTACTS_HANDLED
@@ -38,12 +35,37 @@ Sources:
   - Source: A_ContactsAbandoned
     Description: Queue abandoned Calls
     Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:CONTACTS_ABANDONED
-
   - Source: B_ContactsAbandoned
     Description: Queue Abandoned Calls
-    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:CONTACTS_ABANDONED
-
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:CONTACTS_ABANDONED  
     
+  - Source: A_QueuedTime
+    Description: Queue Queued Time
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:QUEUED_TIME
+  - Source: B_QueuedTime
+    Description: Queue Queued Time
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:QUEUED_TIME
+
+  - Source: A_AbandonTime
+    Description: Queue Abandon Time
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:ABANDON_TIME
+  - Source: B_AbandonTime
+    Description: Queue Abandon Time
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:ABANDON_TIME
+  
+  - Source: A_AnswerTime
+    Description: Queue Answer Time
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:QUEUE_ANSWER_TIME
+  - Source: B_AnswerTime
+    Description: Queue Answer Time
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:QUEUE_ANSWER_TIME
+  
+  - Source: A_ContactsInQueue
+    Description: Queue Contacts In Queue
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:CONTACTS_IN_QUEUE
+  - Source: B_ContactsInQueue
+    Description: Queue Contacts In Queue
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:CONTACTS_IN_QUEUE
 
 Thresholds:
   - Threshold: A_AbandonedThreshold
@@ -79,8 +101,21 @@ Rows:
       Description: Llamadas Respondidas
       Text: Calls Answered
     - Cell: 5
-      Description: Llamadas abandonadas
+      Description: Llamadas Abandonadas
       Text: Calls Abandoned
+    - Cell: 6
+      Description: Tiempo de Espera en la Cola
+      Text: Queued Time
+    - Cell: 7
+      Description: Tiempo de Abandono
+      Text: Abandon Time
+    - Cell: 8
+      Description: Tiempo de Respuesta
+      Text: Answer Time
+    - Cell: 9
+      Description: Contactos en Espera
+      Text: Contacts In Queue
+
   - Row: 2
     Cells:
     - Cell: 1
@@ -98,6 +133,19 @@ Rows:
     - Cell: 5
       Description: Queue A Calls Abandoned
       Reference: A_ContactsAbandoned
+    - Cell: 6
+      Description: Queue A Queued Time
+      Reference: A_QueuedTime
+    - Cell: 7
+      Description: Queue A Abandon Time
+      Reference: A_AbandonTime
+    - Cell: 8
+      Description: Queue A Answer Time
+      Reference: A_AnswerTime
+    - Cell: 9
+      Description: Queue A Contacts In Queue
+      Reference: A_ContactsInQueue
+
   - Row: 3
     Cells:
     - Cell: 1
@@ -115,3 +163,15 @@ Rows:
     - Cell: 5
       Description: Queue B Calls Abandoned
       Reference: B_ContactsAbandoned
+    - Cell: 6
+      Description: Queue B Queued Time
+      Reference: B_QueuedTime
+    - Cell: 7
+      Description: Queue B Abandon Time
+      Reference: B_AbandonTime
+    - Cell: 8
+      Description: Queue B Answer Time
+      Reference: B_AnswerTime
+    - Cell: 9
+      Description: Queue B Contacts In Queue
+      Reference: B_ContactsInQueue
