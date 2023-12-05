@@ -2,3 +2,6 @@ body{
     background-color: rgb(118, 186, 246);
     font-family: Arial, sans-serif;
 }
+td {
+    background-color: rgb(255, 255, 255);   
+}
