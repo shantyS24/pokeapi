@@ -1,18 +1,20 @@
 @import url(https://fonts.googleapis.com/css?family=Unlock);
-table.wallboard-yyyyyy{
-    width: 50%;
-    table-layout: fixed;
+body{
+    background: rgb(0,0,0);
+    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(83,9,121,1) 35%, rgba(0,255,193,1) 100%);
+    font-family: 'Unlock';
 }
-table.wallboard-yyyyyy td {
+table.wallboard-senawallboard{
+    width: 100%;
+    table-layout: fixed;
+
+    border-radius: 10px;
+}
+table.wallboard-senawallboard td {
     text-align: center;
     vertical-align: top;
 }
-.wallboard-senawallboard{
-    background-color: aqua;
-    border-radius: 10px;
-    border: 1px;
-    border-color: black;
-    border-style:double;
+table.wallboard-senawallboard tr{ 
     font-size: 20px;
-    font-family:'Unlock'
+    font-family:'Unlock';
 }

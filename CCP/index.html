@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<script type="text/javascript" src="connect-streams-dr-min.js"></script>
+</head>
+<!-- Add the call to init() as an onload so it will only run once the page is loaded -->
+<body onload="init()">
+<div id="container-div" style="width: 400px; height: 800px;"></div>
+<!-- INICIA EL SCRIPT-->
+<script type="text/javascript">
+    var containerDiv = document.getElementById("container-div");
+    var instanceURL1 = "https://my-us-east-1-domain.my.connect.aws/ccp-v2/";
+    var instanceURL2 = "https://my-us-west-2-domain.my.connect.aws/ccp-v2/";
+      // initialize the streams api
+    function init() {
+        // initialize the ccp
+        globalConnect.core.initCCP(containerDiv, {
+          ccpUrl: instanceURL1,  // REQUIRED
+          pollForFailover: true, // REQUIRED to activate Global Resiliency
+          instanceArn: "arn:aws:connect:us-east-1:0123456789:instance/17ac6c89-91e1-4b3f-86b0-40e5ed67971f", // REQUIRED
+          loginUrl: "<URL for your SSO provider's authentication flow>", // REQUIRED
+          region: "us-east-1",            // REQUIRED
+          standByRegion: { // REQUIRED
+              ccpUrl: instanceURL2, // REQUIRED
+              instanceArn: "arn:aws:connect:us-west-2:0123456789:instance/17ac6c89-91e1-4b3f-86b0-40e5ed67971f", // REQUIRED
+              region: "us-west-2",          // REQUIRED
+        },
+          getPrimaryRegion: function(callback) { // REQUIRED
+            callback()
+            .then(connect => {console.log("promise completed")})
+            .catch(err => {console.log("error encountered")})
+        },
+          additionalScripts: [        //optional
+            "https://example.com/amazon-connect-task.js"
+        ],
+          loginPopup: true,               // optional, defaults to `true`
+          loginPopupAutoClose: true,      // optional, defaults to `false`
+          loginOptions: {                 // optional, if provided opens login in new window
+              autoClose: true,              // optional, defaults to `false`
+              height: 600,                  // optional, defaults to 578
+              width: 400,                   // optional, defaults to 433
+              top: 0,                       // optional, defaults to 0
+              left: 0                       // optional, defaults to 0
+        },
+          softphone: {                    // optional, defaults below apply if not provided
+              allowFramedSoftphone: true,   // optional, defaults to false
+              disableRingtone: false,       // optional, defaults to false
+              ringtoneUrl: "[your-ringtone-filepath].mp3", // optional, defaults to CCP’s default ringtone if a falsy value is set
+              allowFramedVideoCall: true,    // optional, default to false
+              allowEarlyGum: true // optional, default to true
+        },
+          pageOptions: { //optional
+              enableAudioDeviceSettings: false, //optional, defaults to 'false'
+              enableVideoDeviceSettings: false, //optional, defaults to 'false'
+              enablePhoneTypeSettings: true //optional, defaults to 'true'
+        },
+          shouldAddNamespaceToLogs: false, //optional, defaults to 'false'
+          ccpAckTimeout: 5000, //optional, defaults to 3000 (ms)
+          ccpSynTimeout: 3000, //optional, defaults to 1000 (ms)
+          ccpLoadTimeout: 10000 //optional, defaults to 5000 (ms)
+        });
+    }
+    </script>
+<!-- FINALIZA EL SCRIPT-->
+</body>
+</html>
