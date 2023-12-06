@@ -31,7 +31,7 @@ export default function (contact) {
                 var contactAttr=contact.getAttributes()
                 // Iterate attributes and populate the table
                 try {
-                    let tbody = document.getElementById("attributes").getElementsByTagName('tbody')[0];
+                    let tbody = document.getElementById("#attributes").getElementsByTagName('tbody')[0];
                         
                     Object.values(contactAttr).forEach((attribute) => {
                         let attrName = attribute.name;
