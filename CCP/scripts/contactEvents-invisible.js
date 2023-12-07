@@ -8,7 +8,6 @@ export default function (contact) {
     console.debug("CDEBUG >> ContactEvents - New Contact contactId: " + contact.contactId);
     console.debug("CDEBUG >> ContactEvents - New Contact InitialContactId(): " + contact.getInitialContactId());
     session.contact = contact;
-        logInfoMsg("Subscribing to events for contact");
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
