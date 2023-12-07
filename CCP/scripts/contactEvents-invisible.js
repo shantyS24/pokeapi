@@ -14,16 +14,19 @@ export default function (contact) {
                 title: "You have a call from the customer:"+contact.getActiveInitialConnection().getEndpoint().phoneNumber,
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: "Accept Call".contact.onAccepted(handleContactAccepted),
-                confirmButton:contact.onAccepted(handleContactAccepted),
+                confirmButtonText: "Accept Call",
+                confirmButton:contact,
                 confirmButtonColor:"green",
-                denyButtonText: `Reject Call`.contact.onDestroy(handleContactDestroyed)
+                denyButtonText: `Reject Call`
                 }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
                     Swal.fire("Call accepted!", "", "success");
+                    contact.onAccepted(handleContactAccepted);
                 } else if (result.isDenied) {
                     Swal.fire("You declined the call", "", "error");
+                    contact.onEnded(handleContactEnded);
+                    contact.onDestroy(handleContactDestroyed);
                 }
             });
         logInfoMsg("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
