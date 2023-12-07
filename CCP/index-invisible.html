@@ -2,6 +2,7 @@
 <html>
     <head>
         <title>Custom CCP -Invisible</title>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <style>
             
             @keyframes glowing {
@@ -50,7 +51,7 @@
                     <span>Go Offline</span><br />
                 </div>
             </div>
-            <div id="contactActionsDiv">
+            <div id="contactActio7iuuuuuuuuuuuuu8unsDiv">
                 <div id="answerDiv" style="border-style: solid; border-color: black; border-width: medium; padding: 10px; margin: 10px 60px 10px 60px">
                     <span>Answer Incoming</span><br />
                 </div>
@@ -77,6 +78,23 @@
     </div>
     <script src="./lib/connect-streams-min.js"></script>
     <script type="module" src="./scripts/index-invisible.js"></script>
+    <script>
+        Swal.fire({
+            title: "You have a call from the customer:",
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: "Accept Call",
+            confirmButtonColor:"green",
+            denyButtonText: `Reject Call`
+            }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                Swal.fire("Call accepted!", "", "success");
+            } else if (result.isDenied) {
+                Swal.fire("You declined the call", "", "error");
+            }
+        });
+    </script>
 </body>
 </html>
 
