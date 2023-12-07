@@ -11,7 +11,7 @@ export default function (contact) {
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
-                title: "You have a call from the customer:" +contact.getActiveInitialConnection().getEndpoint().firstName+" "+contact.getActiveInitialConnection().getEndpoint().phoneNumber,
+                title: "You have a call from the customer:" +contact.phoneNumber +contact.contactId + contact.firstname.value,
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: "Accept Call"+ contact.onAccepted(handleContactAccepted),
