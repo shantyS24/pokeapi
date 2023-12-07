@@ -37,7 +37,7 @@ Sources:
     Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:96bf6e28-2148-4782-9e8a-daec1b1716ca:CONTACTS_ABANDONED
   - Source: B_ContactsAbandoned
     Description: Queue Abandoned Calls
-    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:CONTACTS_ABANDONED  
+    Reference: 7a5e5f9b-777c-4954-8934-dcbebb75bc64:b1c6934e-e1f0-4bc2-80b2-9ce7249881c6:CONTACTS_ABANDONED
     
   - Source: A_QueuedTime
     Description: Queue Queued Time
