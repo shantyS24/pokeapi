@@ -49,7 +49,7 @@ export default function (ccpContainerId) {
         "customerprofiles", 
         "customerprofiles-container", 
         connectUrl + "/customerprofiles-v2/",
-        { style: "width:800px; height:600px;" }
+        { style: "width:400px; height:300px;" }
     );
     //----------------Init CCP Finished----------------------------
     
