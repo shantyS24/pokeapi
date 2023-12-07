@@ -8,33 +8,16 @@ export default function (contact) {
     console.debug("CDEBUG >> ContactEvents - New Contact contactId: " + contact.contactId);
     console.debug("CDEBUG >> ContactEvents - New Contact InitialContactId(): " + contact.getInitialContactId());
     session.contact = contact;
-    var c;
-    nombrecontacto = connect.contact(function (contact) {
-        c = contact;
-        c.onConnecting(function (c) {
-            var attr = c.getAttributes();
-            var c1 = c.getConnections()[1];
-            var c2 = c.getStatus();
-            document.getElementById("contactID").value = c.contactId;
-            document.getElementById("phoneNumber").value = c1.getAddress()['phoneNumber'];
-            if (attr.firstName) {
-                console.log (c1.getAddress()['phoneNumber'] + attr.firstName.value);
-            }
-            if (attr.lastName) {
-                console.log (c1.getAddress()['phoneNumber']+ attr.lastName.value);
-            }
-        });
-    });
-    logInfoMsg("Subscribing to events for contact");
+        logInfoMsg("Subscribing to events for contact");
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
-                title: "You have a call from the customer:" + nombrecontacto,
+                title: "You have a call from the customer:" +contact.getActiveInitialConnection().getEndpoint().firstName+" "+contact.getActiveInitialConnection().getEndpoint().phoneNumber,
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: "Accept Call"+ contact.onAccepted(handleContactAccepted),
                 confirmButtonColor:"green",
-                denyButtonText: `Reject Call`+contact.onEnded(handleContactEnded)
+                denyButtonText: `Reject Call`+contact.onDestroy(handleContactDestroyed)
                 }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
