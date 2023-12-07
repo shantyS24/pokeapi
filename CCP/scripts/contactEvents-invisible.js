@@ -12,12 +12,12 @@ export default function (contact) {
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
-                title: "You have a call from the customer:" + contact.getActiveInitialConnection().getEndpoint().phoneNumber,
+                title: "You have a call from the customer:" + contact.getActiveInitialConnection().getEndpoint().name.phoneNumber.contactId,
                 showDenyButton: true,
                 showCancelButton: true,
-                confirmButtonText: "Accept Call",
+                confirmButtonText: "Accept Call"+ handleContactAccepted,
                 confirmButtonColor:"green",
-                denyButtonText: `Reject Call`
+                denyButtonText: `Reject Call`+handleContactEnded
                 }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
