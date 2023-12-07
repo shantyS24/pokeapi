@@ -52,13 +52,13 @@
                 </div>
             </div>
             <div id="contactActio7iuuuuuuuuuuuuu8unsDiv">
-                <div id="answerDiv" style="border-style: solid; border-color: black; border-width: medium; padding: 10px; margin: 10px 60px 10px 60px">
+                <div id="answerDiv" style="background-color: rgb(10, 200, 233); border-style: solid; border-color: black; border-width: medium; padding: 10px; margin: 10px 60px 10px 60px">
                     <span>Answer Incoming</span><br />
                 </div>
-                <div id="hangupDiv" style="border-style: solid; border-color: black; border-width: medium; padding: 10px; margin: 10px 60px 10px 60px">
+                <div id="hangupDiv" style="background-color: rgb(233, 10, 10); border-style: solid; border-color: black; border-width: medium; padding: 10px; margin: 10px 60px 10px 60px">
                     <span>Hang-Up</span><br />
                 </div>
-                <div id="clearDiv" style="border-style: solid; border-color: black; border-width: medium; padding: 10px; margin: 10px 60px 10px 60px">
+                <div id="clearDiv" style="background-color: rgb(133, 133, 133); border-style: solid; border-color: black; border-width: medium; padding: 10px; margin: 10px 60px 10px 60px">
                     <span>Close Contact</span><br />
                 </div>
             </div>
@@ -78,23 +78,7 @@
     </div>
     <script src="./lib/connect-streams-min.js"></script>
     <script type="module" src="./scripts/index-invisible.js"></script>
-    <script>
-        Swal.fire({
-            title: "You have a call from the customer:",
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: "Accept Call",
-            confirmButtonColor:"green",
-            denyButtonText: `Reject Call`
-            }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                Swal.fire("Call accepted!", "", "success");
-            } else if (result.isDenied) {
-                Swal.fire("You declined the call", "", "error");
-            }
-        });
-    </script>
+
 </body>
 </html>
 

@@ -11,7 +11,22 @@ export default function (contact) {
     logInfoMsg("Subscribing to events for contact");
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
-        logInfoMsg("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);
+            Swal.fire({
+                title: "You have a call from the customer:" + contact.getActiveInitialConnection().getEndpoint().name.phoneNumber.contactId,
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Accept Call"+ handleContactAccepted,
+                confirmButtonColor:"green",
+                denyButtonText: `Reject Call`+handleContactEnded
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire("Call accepted!", "", "success");
+                } else if (result.isDenied) {
+                    Swal.fire("You declined the call", "", "error");
+                }
+            });
+        logInfoMsg("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
     } else {
         logInfoMsg("This is an existing contact for this agent");
     }
