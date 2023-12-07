@@ -20,8 +20,8 @@ export default function (contact) {
             if (attr.firstName) {
                 console.log (c1.getAddress()['phoneNumber'] + attr.firstName.value);
             }
-            if (attr.lastName) {
-                console.log (c1.getAddress()['phoneNumber']+ attr.lastName.value);
+            else {
+                console.log (c1.getAddress()['phoneNumber'] + attr.firstName.value + attr.lastName.value);
             }
         });
     });
