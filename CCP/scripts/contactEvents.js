@@ -1,3 +1,4 @@
+import session from './session.js';
 import { logInfoQueue } from "./index.js";
 /**
  * Extends the contact events.
@@ -39,13 +40,7 @@ export default function (contact) {
     function handleContactAccepted(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactAccepted - Contact accepted by agent');
         // Add your custom code here
-        if (contact) {
-            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name);
-        } else {
-            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
-        }
-
+        logInfoQueue("Queue Name: " +contact.getQueue().name);
     }
 
     function handleContactConnecting(contact) {
@@ -56,25 +51,14 @@ export default function (contact) {
 
     function handleContactConnected(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
-        if (contact) {
-            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name);
-            var queueBorrable = contact.getQueue().name;
-            document.getElementById("QueueText").innerHTML = queueBorrable;
-        } else {
-            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
-        }
+        logInfoQueue("Queue Name: " + contact.getQueue().name);
+        var queueBorrable = contact.getQueue().name;
+        document.getElementById("QueueText").innerHTML = queueBorrable;
     }
 
     function handleContactEnded(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactEnded() - Contact has ended successfully');
         // Add your custom code here
-        if (contact) {
-            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name);
-        } else {
-            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
-        }
     }
 
     function handleContactDestroyed(contact) {
