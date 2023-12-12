@@ -13,7 +13,7 @@ window.onload = (event) => {
 export function queueMsgsToScreen(msg){
     queueMsgs.innerHTML = '<div>' + new Date().toLocaleTimeString() + ' ' + msg + '</div>' + queueMsgs.innerHTML;
 };
-export function logInfoQueue2(queueMsgs) {
+export function logInfoQueue(queueMsgs) {
     connect.getLog().info(queueMsgs);
     queueMsgsToScreen(queueMsgs);
 };

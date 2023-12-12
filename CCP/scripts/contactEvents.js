@@ -1,4 +1,4 @@
-import { logInfoQueue2 } from "./index.js";
+import { logInfoQueue } from "./index.js";
 /**
  * Extends the contact events.
 */
@@ -43,6 +43,12 @@ export default function (contact) {
     function handleContactAccepted(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactAccepted - Contact accepted by agent');
         // Add your custom code here
+        if (contact) {
+            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
+            logInfoQueue("Queue Name: " +contact.getQueue().name);
+        } else {
+            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
+        }
 
     }
 
@@ -56,7 +62,7 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue2("Queue Name: " +contact.getQueue().name);
+            logInfoQueue("Queue Name: " +contact.getQueue().name);
         } else {
             console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
         }
@@ -65,6 +71,12 @@ export default function (contact) {
     function handleContactEnded(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactEnded() - Contact has ended successfully');
         // Add your custom code here
+        if (contact) {
+            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
+            logInfoQueue("Queue Name: " +contact.getQueue().name);
+        } else {
+            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
+        }
     }
 
     function handleContactDestroyed(contact) {
