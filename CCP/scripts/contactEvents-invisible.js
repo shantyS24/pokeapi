@@ -29,24 +29,23 @@ export default function (contact) {
     function handleContactIncoming(contact) {//Esta funcion es para cuando esta entrando una llamada a los agentes
         console.debug('CDEBUG >> ContactEvents.handleContactIncoming');
         logInfoEvent("[contact.onIncoming] Contact is incoming");
-        Swal.fire({
-            title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
-            showDenyButton: true,
-            showCancelButton: true,
-            confirmButtonText: "Accept Call",
-            confirmButtonColor:"green",
-            denyButtonText: `Reject Call`
-            }).then((result) => {
-            /* Read more about isConfirmed, isDenied below */
-            if (result.isConfirmed) {
-                Swal.fire("Call accepted!", "", "success");
-            } else if (result.isDenied) {
-                Swal.fire("You declined the call", "", "error");
-                contact.onEnded(handleContactEnded);
-            }
-        });
         if (contact) {
             logInfoEvent("[contact.onIncoming] Contact is incoming. Contact state is " + contact.getStatus().type);
+            Swal.fire({
+                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Accept Call",
+                confirmButtonColor:"green",
+                denyButtonText: `Reject Call`
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire("Call accepted!", "", "success");
+                } else if (result.isDenied) {
+                    Swal.fire("You declined the call", "", "error");
+                }
+            });
         } else {
             logInfoEvent("[contact.onIncoming] Contact is incoming. Null contact passed to event handler");
         }
@@ -76,8 +75,6 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             logInfoEvent("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue ARN " + contact.getQueue().queueARN);
-            logInfoQueue("Queue ID " + contact.getQueue().queueId);
             logInfoQueue("Queue Name " + contact.getQueue().name);
             document.getElementById ('answerDiv').classList.remove("glowingButton");
             document.getElementById ('hangupDiv').classList.add("glowingButton");
