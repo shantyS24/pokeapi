@@ -7,7 +7,6 @@ body{
 table.wallboard-senawallboard{
     width: 100%;
     table-layout: fixed;
-
     border-radius: 10px;
 }
 table.wallboard-senawallboard td {

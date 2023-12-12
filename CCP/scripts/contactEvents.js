@@ -1,3 +1,4 @@
+import { logInfoQueue } from "./index.js";
 /**
  * Extends the contact events.
 */
@@ -5,6 +6,27 @@ export default function (contact) {
     console.debug("CDEBUG >> ContactEvents - New Contact contactId: " + contact.contactId);
     console.debug("CDEBUG >> ContactEvents - New Contact InitialContactId(): " + contact.getInitialContactId());
 
+    if (contact.getActiveInitialConnection()
+        && contact.getActiveInitialConnection().getEndpoint()) {
+            Swal.fire({
+                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Accept Call",
+                confirmButtonColor:"green",
+                denyButtonText: `Reject Call`
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire("Call accepted!", "", "success");
+                } else if (result.isDenied) {
+                    Swal.fire("You declined the call", "", "error");
+                }
+            });
+        console.debug("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
+    } else {
+        console.debug("This is an existing contact for this agent");
+    }
     // Route to the respective handler
     contact.onIncoming(handleContactIncoming);
     contact.onAccepted(handleContactAccepted);
@@ -27,37 +49,22 @@ export default function (contact) {
     function handleContactConnecting(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnecting() - Contact connecting to agent');
         // Add your custom code here
-                // Extract attributes
-                var contactAttr=contact.getAttributes()
-                // Iterate attributes and populate the table
-                try {
-                    let tbody = document.getElementById("attributes").getElementsByTagName('tbody')[0];
-                        
-                    Object.values(contactAttr).forEach((attribute) => {
-                        let attrName = attribute.name;
-                        let attrValue = attribute.value;
-                        let tr = tbody.insertRow();
-                        var td1 = tr.insertCell();
-                        var td2 = tr.insertCell();
-                        td1.innerHTML = attrName;
-                        td2.innerHTML = attrValue;
-                    })
-                } catch (e) {
-                    console.error("CDEBUG >> ContactEvents.handleContactConnecting() - Error!! ",e);
-                }
         
     }
 
     function handleContactConnected(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
+        if (contact) {
+            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
+            logInfoQueue("Queue Name: " +"*"+contact.getQueue().name)+"*";
+        } else {
+            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
+        }
     }
 
     function handleContactEnded(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactEnded() - Contact has ended successfully');
         // Add your custom code here
-        // Delete Table
-        let tableBody = document.getElementById("attributes").getElementsByTagName('tbody')[0];
-        tableBody.innerHTML = "";
     }
 
     function handleContactDestroyed(contact) {
