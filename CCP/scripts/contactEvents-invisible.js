@@ -11,6 +11,21 @@ export default function (contact) {
     session.contact = contact;
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
+            Swal.fire({
+                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
+                showDenyButton: true,
+                showCancelButton: true,
+                confirmButtonText: "Accept Call",
+                confirmButtonColor:"green",
+                denyButtonText: `Reject Call`
+                }).then((result) => {
+                /* Read more about isConfirmed, isDenied below */
+                if (result.isConfirmed) {
+                    Swal.fire("Call accepted!", "", "success");
+                } else if (result.isDenied) {
+                    Swal.fire("You declined the call", "", "error");
+                }
+            });
         logInfoMsg("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
     } else {
         logInfoMsg("This is an existing contact for this agent");
@@ -31,21 +46,6 @@ export default function (contact) {
         logInfoEvent("[contact.onIncoming] Contact is incoming");
         if (contact) {
             logInfoEvent("[contact.onIncoming] Contact is incoming. Contact state is " + contact.getStatus().type);
-            Swal.fire({
-                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
-                showDenyButton: true,
-                showCancelButton: true,
-                confirmButtonText: "Accept Call",
-                confirmButtonColor:"green",
-                denyButtonText: `Reject Call`
-                }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    Swal.fire("Call accepted!", "", "success");
-                } else if (result.isDenied) {
-                    Swal.fire("You declined the call", "", "error");
-                }
-            });
         } else {
             logInfoEvent("[contact.onIncoming] Contact is incoming. Null contact passed to event handler");
         }
