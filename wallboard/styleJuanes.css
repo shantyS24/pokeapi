@@ -1,7 +1,37 @@
-body{
-    background-color: rgb(118, 186, 246);
+body {
+    background-image: url('image/Captura\ de\ pantalla\ 2023-12-12\ 140400.png');
+    background-size: cover;
+    background-repeat: no-repeat;
     font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
 }
+
 td {
     background-color: rgb(255, 255, 255);   
+}
+table.wallboard-senawallboard{
+    width: 100%;
+    table-layout: fixed;
+    border-radius: 10px;
+}
+table.wallboard-senawallboard td {
+    text-align: center;
+    vertical-align: top;
+    border:1px solid aquamarine; 
+
+}
+table.wallboard-senawallboard tr{ 
+    font-size: 20px;
+    font-family:'Unlock';
+    border:1px solid aquamarine; 
+    color: rgb(94, 209, 203);
+
+}table.wallboard-senawallboard{
+    width: 80%;
+    table-layout: fixed;
+    border-radius: 10px;
 }
