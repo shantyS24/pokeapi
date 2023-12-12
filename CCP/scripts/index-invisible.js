@@ -99,6 +99,9 @@ export function logMsgToScreen(msg) {
 export function logEventToScreen(msg) {
     eventMsgs.innerHTML = '<div>' + new Date().toLocaleTimeString() + ' ' + msg + '</div>' + eventMsgs.innerHTML;
 }
+export function queueMsgsToScreen(msg){
+    queueMsgs.innerHTML = '<div>' + new Date().toLocaleTimeString() + ' ' + msg + '</div>' + queueMsgs.innerHTML;
+}
 
 export function logInfoMsg(msg) {
     connect.getLog().info(msg);
@@ -108,6 +111,10 @@ export function logInfoMsg(msg) {
 export function logInfoEvent(eventMsg) {
     connect.getLog().info(eventMsg);
     logEventToScreen(eventMsg);
+}
+export function logInfoQueue(queueMsgs) {
+    connect.getLog().info(queueMsgs);
+    queueMsgsToScreen(queueMsgs);
 }
 
 export function displayAgentStatus(status) {

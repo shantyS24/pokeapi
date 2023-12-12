@@ -1,6 +1,7 @@
 import session from './session.js';
-import {logInfoMsg} from './index-invisible.js'
-import {logInfoEvent} from './index-invisible.js'
+import {logInfoMsg} from './index-invisible.js';
+import {logInfoEvent} from './index-invisible.js';
+import {logInfoQueue} from './index-invisible.js';
 /**
  * Extends the contact events.
 */
@@ -25,7 +26,7 @@ export default function (contact) {
     contact.onEnded(handleContactEnded);
     contact.onDestroy(handleContactDestroyed);
 
-    function handleContactIncoming(contact) {
+    function handleContactIncoming(contact) {//Esta funcion es para cuando esta entrando una llamada a los agentes
         console.debug('CDEBUG >> ContactEvents.handleContactIncoming');
         logInfoEvent("[contact.onIncoming] Contact is incoming");
         Swal.fire({
@@ -75,6 +76,9 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             logInfoEvent("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
+            logInfoQueue("Queue Name" + contact.getQueue().name);
+            logInfoQueue("Queue Name" + contact.getQueue().queueARN);
+            logInfoQueue("Queue Name" + contact.getQueue().queueId);
             document.getElementById ('answerDiv').classList.remove("glowingButton");
             document.getElementById ('hangupDiv').classList.add("glowingButton");
         } else {
