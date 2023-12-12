@@ -1,19 +1,27 @@
 @import url(https://fonts.googleapis.com/css?family=Unlock);
 body{
-    background: rgb(0,0,0);
-    background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(83,9,121,1) 35%, rgba(0,255,193,1) 100%);
+    background: rgb(110,255,226);
+    background: radial-gradient(circle, rgba(0, 255, 204, 0.418) 0%, rgba(0, 204, 255, 0.719) 45%, rgba(0, 0, 0, 0.212) 100%);
     font-family: 'Unlock';
 }
+#imgCTG{
+    padding: 25px;
+}
 table.wallboard-senawallboard{
+    margin-top: 50px;
     width: 100%;
-    table-layout: fixed;
-    border-radius: 10px;
+}
+table.wallboard-senawallboard tr{ 
+    font-size: 20px;
+    font-family:'Unlock';
+    color: rgb(0, 0, 0);
+    border: px;
+    border-style: solid;
 }
 table.wallboard-senawallboard td {
     text-align: center;
     vertical-align: top;
 }
-table.wallboard-senawallboard tr{ 
-    font-size: 20px;
-    font-family:'Unlock';
+table.wallboard-senawallboard td.R1C1, td.R1C2, td.R1C3, td.R1C4, td.R1C5, td.R1C6, td.R1C7, td.R1C8, td.R1C9, td.R1C10{
+    color: rgba(0, 177, 177, 0.863);
 }
