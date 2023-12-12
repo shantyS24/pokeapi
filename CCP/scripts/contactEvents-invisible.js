@@ -76,9 +76,9 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             logInfoEvent("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name" + contact.getQueue().name);
-            logInfoQueue("Queue Name" + contact.getQueue().queueARN);
-            logInfoQueue("Queue Name" + contact.getQueue().queueId);
+            logInfoQueue("Queue ARN " + contact.getQueue().queueARN);
+            logInfoQueue("Queue ID " + contact.getQueue().queueId);
+            logInfoQueue("Queue Name " + contact.getQueue().name);
             document.getElementById ('answerDiv').classList.remove("glowingButton");
             document.getElementById ('hangupDiv').classList.add("glowingButton");
         } else {
