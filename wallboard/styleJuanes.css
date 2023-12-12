@@ -3,35 +3,59 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
+
 }
 
-td {
-    background-color: rgb(255, 255, 255);   
+@keyframes fondoAnimado {
+    0% {background-color: rgb(53, 165, 150);}
+    30% {background-color: rgb(64, 202, 184);}
+    65% {background-color: rgb(54, 231, 208);}
+    100% {background-color: rgb(64, 202, 184);}
+
 }
 table.wallboard-senawallboard{
-    width: 100%;
+
+    height: 40%;
     table-layout: fixed;
     border-radius: 10px;
+    position: absolute;
+    top: 30%;
+    font-family: Arial, sans-serif;
 }
 table.wallboard-senawallboard td {
     text-align: center;
     vertical-align: top;
-    border:1px solid aquamarine; 
-
+    border: none !important;
+    text-align: center;
+    vertical-align: middle;
 }
 table.wallboard-senawallboard tr{ 
     font-size: 20px;
     font-family:'Unlock';
-    border:1px solid aquamarine; 
-    color: rgb(94, 209, 203);
-
-}table.wallboard-senawallboard{
-    width: 80%;
-    table-layout: fixed;
-    border-radius: 10px;
+    border: 1px solid white;
+}
+table.wallboard-senawallboard tr:first-child{
+    color: rgb(255, 255, 255);
+    animation: fondoAnimado 5s infinite;
+}
+table.wallboard-senawallboard td.r1c1, td.r1c2,td.r1c3,td.r1c4, td.r1c5,td.r1c6, td.r1c7, td.r1c8,td.r1c9{
+color: rgb(255, 255, 255);
+}
+table.wallboard-senawallboard td.r2c10, td.r3c10{
+    color: rgb(255, 255, 255);
+    background-color: rgb(64, 202, 184);
+    animation: fondoAnimado 5s infinite;
+}
+#reloj {
+    font-size: 20px;
+    font-weight: bold;
+    color: rgb(53, 95, 92);
+    margin-top: 20px;
+}
+h1 {
+    font-size: 35px;
+    font-weight: bold;
+    color: rgb(64, 202, 184);
+    margin-top: 7%;
+    text-align: center;
 }

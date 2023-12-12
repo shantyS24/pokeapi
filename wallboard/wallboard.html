@@ -3,11 +3,7 @@
   <title>Amazon Connect Wallboard</title>
   <link rel="stylesheet" href="styleJuanes.css">
   <script language="javascript">
-   /*
-    * Set API Gateway invoke URL in the following line.
-    * Remember to include the stage name, region name and the wallboard
-    * definition name.
-    */
+
    API_URI  = "https://zrzusipijh.execute-api.us-east-1.amazonaws.com/prod/wallboard/?Wallboard=senawallboard"
    RefreshInterval = 5000 // How often to retrieve data in milliseconds
 
@@ -42,18 +38,22 @@
     console.log("Query to API Gateway timed out")
    }
   </script>
-  <style>
-   /*
-    * "-yyyyyy" is from the wallboard definition in DynamoDB and the API
-    * Gateway call above - can also just use "table" if there's no other
-    * tables in this file
-    */
-   table.wallboard-yyyyyy {width: 50%; table-layout: fixed;}
-   table.wallboard-yyyyyy td {text-align: center; vertical-align: top;}
-  </style>
+  
+    <script>
+        function mostrarHora() {
+            var fecha = new Date();
+            var hora = fecha.getHours();
+            var minutos = fecha.getMinutes();
+            var segundos = fecha.getSeconds();
+            var tiempo = hora + ":" + minutos + ":" + segundos;
+            document.getElementById("reloj").innerHTML = tiempo;
+        }
+        setInterval(mostrarHora, 1000);
+    </script>
  </head>
  <body>
-
+    <div id="reloj"></div>
+    <h1>SENA WALLBOARD</h1>
   <div id="wallboard"></div>
   <script type="text/javascript">
    GetWallboard();

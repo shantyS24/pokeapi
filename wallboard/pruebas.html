@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mi página web</title>
+    <style>
+
+    </style>
+    <script>
+        function mostrarHora() {
+            var fecha = new Date();
+            var hora = fecha.getHours();
+            var minutos = fecha.getMinutes();
+            var segundos = fecha.getSeconds();
+            var tiempo = hora + ":" + minutos + ":" + segundos;
+            document.getElementById("reloj").innerHTML = tiempo;
+        }
+        setInterval(mostrarHora, 1000);
+    </script>
+</head>
+<body>
+    <h1>Bienvenido a mi página web</h1>
+    <p>Esta es una página de ejemplo.</p>
+    <div id="reloj"></div>
+</body>
+</html>
