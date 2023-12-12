@@ -11,8 +11,8 @@ export default function (contact) {
             Swal.fire({
                 title: "You have a call from the customer:" + contact.getQueue(), //Tomamaos el nombre del Queue
                 showDenyButton: true,
-                showCancelButton: true,
-                confirmButtonText: "Accept Call",
+                showCancelButton: false,
+                confirmButtonText: "ok",
                 confirmButtonColor:"green",
                 denyButtonText: `Reject Call`
                 }).then((result) => {
@@ -20,7 +20,7 @@ export default function (contact) {
                 if (result.isConfirmed) {
                     Swal.fire("Call accepted!", "", "success");
                 } else if (result.isDenied) {
-                    Swal.fire("You declined the call", "", "error");
+                    console.debug("This is an existing contact for this agent");
                 }
             });
         console.debug("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
@@ -62,7 +62,7 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name);
+            logInfoQueue("Queue Name: " +contact.getQueue());
         } else {
             console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
         }
