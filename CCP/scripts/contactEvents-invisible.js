@@ -101,7 +101,7 @@ export default function (contact) {
         logInfoEvent("[contact.onDestroy] Contact is Destroyed");
         if (contact) {
             logInfoEvent("[contact.onDestroy] Contact is destroyed. Contact state is " + contact.getStatus().type);
-            document.getElementById("QueueText").innerHTML = "SE MURIO";
+            document.getElementById("QueueText").innerHTML = " ";
             document.getElementById ('clearDiv').classList.remove("glowingButton");
         } else {
             logInfoEvent("[contact.onDestroy] Contact is connecting. Null contact passed to event handler");
