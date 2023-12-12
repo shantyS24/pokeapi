@@ -58,6 +58,7 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
+            logInfoQueue("Queue Name: " +contact.getQueue().name);
             var queueBorrable = contact.getQueue().name;
             document.getElementById("QueueText").innerHTML = queueBorrable;
         } else {
@@ -78,7 +79,7 @@ export default function (contact) {
 
     function handleContactDestroyed(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactDestroyed() - Contact will be destroyed');
-        document.getElementById("QueueText").innerHTML = " ";
+        document.getElementById("QueueText").innerHTML = "Buenas";
     }
 
     function handleContactMissed(contact) {
