@@ -1,5 +1,4 @@
-import session from './session.js';
-import { logInfoQueue } from "./index.js";
+
 /**
  * Extends the contact events.
 */

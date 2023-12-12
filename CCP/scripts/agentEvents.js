@@ -1,4 +1,4 @@
-import session from './session.js';
+
 /**
  * Extends the agent events.
 */
