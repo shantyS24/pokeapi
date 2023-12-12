@@ -10,17 +10,13 @@ export default function (contact) {
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
                 title: "You have a call from the customer:" + contact.getQueue(), //Tomamaos el nombre del Queue
-                showDenyButton: true,
                 showCancelButton: false,
-                confirmButtonText: "ok",
+                confirmButtonText: "Cerrar",
                 confirmButtonColor:"green",
-                denyButtonText: `Reject Call`
                 }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    Swal.fire("Call accepted!", "", "success");
-                } else if (result.isDenied) {
-                    console.debug("This is an existing contact for this agent");
+                    Swal.fire("ok", "", "success");
                 }
             });
         console.debug("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
