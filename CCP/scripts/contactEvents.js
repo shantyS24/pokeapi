@@ -9,7 +9,7 @@ export default function (contact) {
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
-                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
+                title: "You have a call from the customer:" + contact.getQueue(), //Tomamaos el nombre del Queue
                 showDenyButton: true,
                 showCancelButton: true,
                 confirmButtonText: "Accept Call",
