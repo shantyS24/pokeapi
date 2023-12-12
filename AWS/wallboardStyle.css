@@ -3,7 +3,6 @@ body{
     background: rgb(0,0,0);
     background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(83,9,121,1) 35%, rgba(0,255,193,1) 100%);
     font-family: 'Unlock';
-    
 }
 table.wallboard-senawallboard{
     width: 100%;
