@@ -9,18 +9,14 @@ export default function (contact) {
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
-                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
-                showDenyButton: true,
-                showCancelButton: true,
-                confirmButtonText: "Accept Call",
+                title: "You have a call from the customer:" + contact.getQueue(), //Tomamaos el nombre del Queue
+                showCancelButton: false,
+                confirmButtonText: "Cerrar",
                 confirmButtonColor:"green",
-                denyButtonText: `Reject Call`
                 }).then((result) => {
                 /* Read more about isConfirmed, isDenied below */
                 if (result.isConfirmed) {
-                    Swal.fire("Call accepted!", "", "success");
-                } else if (result.isDenied) {
-                    Swal.fire("You declined the call", "", "error");
+                    Swal.fire("ok", "", "success");
                 }
             });
         console.debug("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
@@ -62,7 +58,7 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name);
+            logInfoQueue("Queue Name: " +contact.getQueue());
         } else {
             console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
         }
