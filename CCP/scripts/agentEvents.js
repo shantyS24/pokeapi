@@ -5,7 +5,7 @@
 export default function (agent) {
     // Show the CCP container once tthe agent is logged in
     console.log("CDEBUG >> agentEvents");
-    
+    session.agent = agent;
     //session.agent = agent;
     agent.onRefresh(handleAgentRefresh);
     agent.onStateChange(handleAgentStateChange);

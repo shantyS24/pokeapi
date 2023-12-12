@@ -5,7 +5,7 @@ import { logInfoQueue } from "./index.js";
 export default function (contact) {
     console.debug("CDEBUG >> ContactEvents - New Contact contactId: " + contact.contactId);
     console.debug("CDEBUG >> ContactEvents - New Contact InitialContactId(): " + contact.getInitialContactId());
-
+    session.contact = contact;
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
