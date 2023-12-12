@@ -3,8 +3,6 @@
 <head>
     <title>SENA_CCP</title>
     <meta charset="UTF-8">
-    <script type="text/javascript" src="./lib/connect-streams-min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </head>
 <body>
     <div>
@@ -12,14 +10,19 @@
     </div>
     <div id="container-div" style="float:left; width: 400px; height: 600px;"></div>
     <!-- Call the index.js script that contains all JS code to start the CCP inside "container-div"-->
-    <script type="module" src="./scripts/index.js"></script>
+
 
     <div id="queueMsgsContainer" style="position:absolute; left: 500px">
         <h2>Queue Info Answered</h2>
         <div id="queueMsgs" style="width:600px; height: 150px; overflow: auto; border-style: outset; border-color: rgb(0, 26, 255); font-family:Arial; font-size:larger; color:rgb(187, 0, 140);">
+            <small id="QueueText" class="text-muted"> </small>
         </div> 
     </div>
     <script src="./lib/connect-streams-min.js"></script>
+<<<<<<< HEAD
+=======
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+>>>>>>> d2b744642921f87f686857a8a5803c64b51074f8
     <script type="module" src="./scripts/index.js"></script>
 </body>
 </html>

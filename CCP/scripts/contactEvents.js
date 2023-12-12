@@ -1,4 +1,4 @@
-import { logInfoQueue } from "./index.js";
+import session from './session.js';
 /**
  * Extends the contact events.
 */
@@ -9,16 +9,11 @@ export default function (contact) {
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
             Swal.fire({
-                title: "You have a call from the customer:" + contact.getQueue(), //Tomamaos el nombre del Queue
+                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
                 showCancelButton: false,
                 confirmButtonText: "Cerrar",
                 confirmButtonColor:"green",
-                }).then((result) => {
-                /* Read more about isConfirmed, isDenied below */
-                if (result.isConfirmed) {
-                    Swal.fire("ok", "", "success");
-                }
-            });
+                });
         console.debug("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
     } else {
         console.debug("This is an existing contact for this agent");
@@ -39,13 +34,6 @@ export default function (contact) {
     function handleContactAccepted(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactAccepted - Contact accepted by agent');
         // Add your custom code here
-        if (contact) {
-            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name);
-        } else {
-            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
-        }
-
     }
 
     function handleContactConnecting(contact) {
@@ -56,28 +44,18 @@ export default function (contact) {
 
     function handleContactConnected(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
-        if (contact) {
-            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue());
-        } else {
-            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
-        }
+        var queueBorrable = contact.getQueue().name;
+        document.getElementById("QueueText").innerHTML = queueBorrable;
     }
 
     function handleContactEnded(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactEnded() - Contact has ended successfully');
         // Add your custom code here
-        if (contact) {
-            console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name);
-        } else {
-            console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
-        }
     }
 
     function handleContactDestroyed(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactDestroyed() - Contact will be destroyed');
-        // Add your custom code here
+        document.getElementById("QueueText").innerHTML = " ";
     }
 
     function handleContactMissed(contact) {
