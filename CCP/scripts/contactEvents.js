@@ -1,4 +1,4 @@
-import { logInfoQueue } from "./index.js";
+import { logInfoQueue2 } from "./index.js";
 /**
  * Extends the contact events.
 */
@@ -56,7 +56,7 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             console.debug("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name);
+            logInfoQueue2("Queue Name: " +contact.getQueue().name);
         } else {
             console.debug("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
         }
