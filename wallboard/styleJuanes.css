@@ -16,11 +16,15 @@ body {
 table.wallboard-senawallboard{
 
     height: 40%;
+    width: 100%;
     table-layout: fixed;
     border-radius: 10px;
     position: absolute;
     top: 30%;
     font-family: Arial, sans-serif;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
 }
 table.wallboard-senawallboard td {
     text-align: center;
@@ -36,6 +40,7 @@ table.wallboard-senawallboard tr{
 }
 table.wallboard-senawallboard tr:first-child{
     color: rgb(255, 255, 255);
+    font-size: 25px;
     animation: fondoAnimado 5s infinite;
 }
 table.wallboard-senawallboard td.r1c1, td.r1c2,td.r1c3,td.r1c4, td.r1c5,td.r1c6, td.r1c7, td.r1c8,td.r1c9{

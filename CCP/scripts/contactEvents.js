@@ -8,16 +8,17 @@ export default function (contact) {
     session.contact = contact;
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
-            Swal.fire({
-                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
-                showCancelButton: false,
-                confirmButtonText: "Cerrar",
-                confirmButtonColor:"green",
-                });
+        Swal.fire({
+            title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
+            showCancelButton: false,
+            confirmButtonText: "Cerrar",
+            confirmButtonColor: "green",
+        });
         console.debug("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
     } else {
         console.debug("This is an existing contact for this agent");
     }
+
     // Route to the respective handler
     contact.onIncoming(handleContactIncoming);
     contact.onAccepted(handleContactAccepted);
@@ -39,7 +40,7 @@ export default function (contact) {
     function handleContactConnecting(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnecting() - Contact connecting to agent');
         // Add your custom code here
-        
+
     }
 
     function handleContactConnected(contact) {
@@ -73,5 +74,8 @@ export default function (contact) {
             confirmButtonColor:"green",
             });
     }
+
+
+
 
 }
