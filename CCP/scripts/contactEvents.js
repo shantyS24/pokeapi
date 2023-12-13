@@ -62,7 +62,12 @@ export default function (contact) {
             var indice = Math.floor(Math.random() * msgsArray.length);
             return msgsArray[indice];
         }
-        alert(randomMsgs());
+        Swal.fire({
+            title: randomMsgs(),
+            icon: 'success',
+            confirmButtonText: "Close",
+            confirmButtonColor: "green",
+        });
     }
 
     function handleContactMissed(contact) {
