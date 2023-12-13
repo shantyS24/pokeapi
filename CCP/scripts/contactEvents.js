@@ -8,17 +8,35 @@ export default function (contact) {
     session.contact = contact;
     if (contact.getActiveInitialConnection()
         && contact.getActiveInitialConnection().getEndpoint()) {
-            Swal.fire({
-                title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
-                showCancelButton: false,
-                confirmButtonText: "Cerrar",
-                confirmButtonColor:"green",
-                });
+        Swal.fire({
+            title: "You have a call from the customer:" + contact.getQueue().name, //Tomamaos el nombre del Queue
+            showCancelButton: false,
+            confirmButtonText: "Cerrar",
+            confirmButtonColor: "green",
+        });
         console.debug("New contact is from " + contact.getActiveInitialConnection().getEndpoint().phoneNumber);//ACA ESTA EL NUMERO DEL CLIENTE
     } else {
         console.debug("This is an existing contact for this agent");
     }
-   
+    function showRandomMessages(messages) {
+        const randomMessages = [];
+        for (let i = 0; i < 5; i++) {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            randomMessages.push(messages[randomIndex]);
+        }
+        if (contact.handleContactDestroyed()) {
+            Swal.fire({
+                title: "Random Messages",
+                html: randomMessages.join("<br>"),
+                showCancelButton: false,
+                confirmButtonText: "Cerrar",
+                confirmButtonColor: "green",
+            });
+        }
+
+        const messages = ["Message 1", "Message 2", "Message 3", "Message 4", "Message 5", "Message 6"];
+        showRandomMessages(messages);
+    }
     // Route to the respective handler
     contact.onIncoming(handleContactIncoming);
     contact.onAccepted(handleContactAccepted);
@@ -40,7 +58,7 @@ export default function (contact) {
     function handleContactConnecting(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnecting() - Contact connecting to agent');
         // Add your custom code here
-        
+
     }
 
     function handleContactConnected(contact) {
@@ -57,24 +75,6 @@ export default function (contact) {
     function handleContactDestroyed(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactDestroyed() - Contact will be destroyed');
         document.getElementById("QueueText").innerHTML = " ";
-        function showRandomMessages(messages) {
-            const randomMessages = [];
-            for (let i = 0; i < 5; i++) {
-                const randomIndex = Math.floor(Math.random() * messages.length);
-                randomMessages.push(messages[randomIndex]);
-            }
-    
-            Swal.fire({
-                title: "Random Messages",
-                html: randomMessages.join("<br>"),
-                showCancelButton: false,
-                confirmButtonText: "Cerrar",
-                confirmButtonColor: "green",
-            });
-            
-        const messages = ["Message 1", "Message 2", "Message 3", "Message 4", "Message 5", "Message 6"];
-        showRandomMessages(messages);
-        }
     }
 
     function handleContactMissed(contact) {
