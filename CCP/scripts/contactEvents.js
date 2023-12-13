@@ -57,32 +57,31 @@ export default function (contact) {
     function handleContactDestroyed(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactDestroyed() - Contact will be destroyed');
         document.getElementById("QueueText").innerHTML = " ";
+        function showRandomMessages(messages) {
+            const randomMessages = [];
+            for (let i = 0; i < 5; i++) {
+                const randomIndex = Math.floor(Math.random() * messages.length);
+                randomMessages.push(messages[randomIndex]);
+            }
+    
+            Swal.fire({
+                title: "Random Messages",
+                html: randomMessages.join("<br>"),
+                showCancelButton: false,
+                confirmButtonText: "Cerrar",
+                confirmButtonColor: "green",
+            });
+            
+        const messages = ["Message 1", "Message 2", "Message 3", "Message 4", "Message 5", "Message 6"];
         showRandomMessages(messages);
-
+        }
     }
 
     function handleContactMissed(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactMissed() - Contact was missed');
     }
 
-    function showRandomMessages(messages) {
-        const randomMessages = [];
-        for (let i = 0; i < 5; i++) {
-            const randomIndex = Math.floor(Math.random() * messages.length);
-            randomMessages.push(messages[randomIndex]);
-        }
 
-        Swal.fire({
-            title: "Random Messages",
-            html: randomMessages.join("<br>"),
-            showCancelButton: false,
-            confirmButtonText: "Cerrar",
-            confirmButtonColor: "green",
-        });
-        
-    const messages = ["Message 1", "Message 2", "Message 3", "Message 4", "Message 5", "Message 6"];
-
-    }
 
 
 }
