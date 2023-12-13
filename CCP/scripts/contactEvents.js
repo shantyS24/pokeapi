@@ -67,12 +67,7 @@ export default function (contact) {
             var indice = Math.floor(Math.random() * msgsArray.length);
             return msgsArray[indice];
         }
-        Swal.fire({
-            title: randomMsgs(),
-            showCancelButton: false,
-            confirmButtonText: "Cerrar",
-            confirmButtonColor:"green",
-            });
+        alert(randomMsgs());
     }
 
 
