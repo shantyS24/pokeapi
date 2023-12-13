@@ -57,17 +57,17 @@ export default function (contact) {
     function handleContactDestroyed(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactDestroyed() - Contact will be destroyed');
         document.getElementById("QueueText").innerHTML = " ";
-    }
-
-    function handleContactMissed(contact) {
-        console.debug('CDEBUG >> ContactEvents.handleContactMissed() - Contact was missed');
-        
         var msgsArray=  ["Mensaje 1", "Mensaje 2", "Mensaje 3", "Mensaje 4", "Mensaje 5"];
         function randomMsgs() {
             var indice = Math.floor(Math.random() * msgsArray.length);
             return msgsArray[indice];
         }
         alert(randomMsgs());
+    }
+
+    function handleContactMissed(contact) {
+        console.debug('CDEBUG >> ContactEvents.handleContactMissed() - Contact was missed');
+    
     }
 
 
