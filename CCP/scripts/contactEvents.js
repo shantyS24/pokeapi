@@ -57,7 +57,33 @@ export default function (contact) {
     function handleContactDestroyed(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactDestroyed() - Contact will be destroyed');
         document.getElementById("QueueText").innerHTML = " ";
-        var msgsArray=  ["Mensaje 1", "Mensaje 2", "Mensaje 3", "Mensaje 4", "Mensaje 5"];
+        var msgsArray=  [
+            "You did an excellent job handling that call!",
+            "You were very patient with the customer. Great work!",
+            "You really went above and beyond to help that customer.",
+            "You have a great attitude and it shows in your work.",
+            "You handled that call like a pro!",
+            "You are a great listener and it shows in your work.", 
+            "You are a valuable asset to our team.",
+            "You are doing an amazing job!",
+            "You are a great problem solver.",
+            "You are a great communicator.",
+            "You are very knowledgeable and it shows in your work.",
+            "You are very professional and it shows in your work.",
+            "You are very efficient and it shows in your work.",
+            "You are very organized and it shows in your work.",
+            "You are very detail-oriented and it shows in your work.",
+            "You are very thorough and it shows in your work.",
+            "You are very reliable and it shows in your work.",
+            "You are very friendly and it shows in your work.",
+            "You are very helpful and it shows in your work.",
+            "You are very courteous and it shows in your work.",
+            "You are very respectful and it shows in your work.",
+            "You are very patient and it shows in your work.",
+            "You are very understanding and it shows in your work.",
+            "You are very empathetic and it shows in your work.",
+            "You are very positive and it shows in your work."
+        ];
         function randomMsgs() {
             var indice = Math.floor(Math.random() * msgsArray.length);
             return msgsArray[indice];
