@@ -1,7 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Unlock);
 body{
-    background: rgb(110,255,226);
-    background: radial-gradient(circle, rgba(0, 255, 204, 0.418) 0%, rgba(0, 204, 255, 0.719) 45%, rgba(0, 0, 0, 0.212) 100%);
+    background-image: url(./img.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
     font-family: 'Unlock';
 }
 #imgCTG{
@@ -10,18 +11,47 @@ body{
 table.wallboard-senawallboard{
     margin-top: 50px;
     width: 100%;
+    
 }
 table.wallboard-senawallboard tr{ 
     font-size: 20px;
     font-family:'Unlock';
     color: rgb(0, 0, 0);
-    border: px;
-    border-style: solid;
+    border: 2px;
 }
-table.wallboard-senawallboard td {
+
+table.wallboard-senawallboard td{
     text-align: center;
-    vertical-align: top;
+    border: none !important;
 }
 table.wallboard-senawallboard td.R1C1, td.R1C2, td.R1C3, td.R1C4, td.R1C5, td.R1C6, td.R1C7, td.R1C8, td.R1C9, td.R1C10{
-    color: rgba(0, 177, 177, 0.863);
+    background: rgb(39,214,246);
+    background: linear-gradient(180deg, rgba(39,214,246,0.7903536414565826) 0%, rgba(0,2,57,0.7707457983193278) 100%);
+    color: rgba(255, 255, 255, 0.863);
+    
+    border-bottom: 1px solid black;
+}
+table.wallboard-senawallboard tr:nth-child(1) {
+    border-bottom: 2px solid rgba(0, 4, 255, 0.863);
+}
+table.wallboard-senawallboard tr:nth-child(2),
+table.wallboard-senawallboard tr:nth-child(3) {
+    height: 80px;
+    background-color: rgb(231, 228, 228);
+    color: rgb(0, 0, 0);
+}
+table.wallboard-senawallboard td.R1C10, td.R2C10, td.R3C10{
+    color: rgb(225, 0, 255);
+}
+table.wallboard-senawallboard td.R2C2, td.R3C2{
+    color: rgb(0, 81, 255);
+}
+table.wallboard-senawallboard td.R2C4, td.R3C4{
+    color: rgb(12, 153, 43);
+}
+table.wallboard-senawallboard td.R2C5, td.R3C5{
+    color: red;
+}
+table.wallboard-senawallboard td.R2C9, td.R3C9{
+    color: orange;
 }
