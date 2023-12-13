@@ -60,6 +60,18 @@ export default function (contact) {
 
     function handleContactMissed(contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactMissed() - Contact was missed');
+        
+        var msgsArray=  ["Mensaje 1", "Mensaje 2", "Mensaje 3", "Mensaje 4", "Mensaje 5"];
+        function randomMsgs() {
+            var indice = Math.floor(Math.random() * msgsArray.length);
+            return msgsArray[indice];
+        }
+        Swal.fire({
+            title: randomMsgs(),
+            showCancelButton: false,
+            confirmButtonText: "Cerrar",
+            confirmButtonColor:"green",
+            });
     }
 
 }
