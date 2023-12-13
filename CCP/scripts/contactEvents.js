@@ -18,25 +18,7 @@ export default function (contact) {
     } else {
         console.debug("This is an existing contact for this agent");
     }
-    function showRandomMessages(messages) {
-        const randomMessages = [];
-        for (let i = 0; i < 5; i++) {
-            const randomIndex = Math.floor(Math.random() * messages.length);
-            randomMessages.push(messages[randomIndex]);
-        }
-        if (contact.handleContactDestroyed()) {
-            Swal.fire({
-                title: "Random Messages",
-                html: randomMessages.join("<br>"),
-                showCancelButton: false,
-                confirmButtonText: "Cerrar",
-                confirmButtonColor: "green",
-            });
-        }
 
-        const messages = ["Message 1", "Message 2", "Message 3", "Message 4", "Message 5", "Message 6"];
-        showRandomMessages(messages);
-    }
     // Route to the respective handler
     contact.onIncoming(handleContactIncoming);
     contact.onAccepted(handleContactAccepted);
