@@ -91,7 +91,7 @@ export default function (contact) {
                 // Función para actualizar el cronómetro
                 function actualizarCronometro() {
                     tiempoTranscurrido++;
-                    document.getElementById('mensaje').innerHTML = `ha transcurrido ${tiempoTranscurrido} segundos`};
+                    document.getElementById('mensaje').innerHTML = `ha transcurrido ${tiempoTranscurrido} segundos`;
                     // Verificar si ha pasado 1 minuto para mostrar un mensaje
                     if (tiempoTranscurrido === 30) {
                         document.getElementById('mensaje').innerHTML = 'Ha pasado 30 segundos';
@@ -101,7 +101,6 @@ export default function (contact) {
                         document.getElementById('mensaje').innerHTML = 'Ha 1 minuto, ya parele ,mejor cuelgue';
                     }
                 }
-
                 // Iniciar el intervalo para actualizar el cronómetro cada segundo
                 const intervalo = setInterval(actualizarCronometro, 1000);
 
@@ -110,11 +109,8 @@ export default function (contact) {
                     clearInterval(intervalo);
                 }, 60000); // 120,000 milisegundos = 2 minutos
             }
-
-            // Iniciar la función
             contabilizarTiempo();
-        }
-
+            // Iniciar la funció
     } else {
         logInfoEvent("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
     }
