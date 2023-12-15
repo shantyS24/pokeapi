@@ -99,6 +99,7 @@ export default function (contact) {
                     if (tiempoTranscurrido === 90) {
                         document.getElementById('mensaje1').innerHTML = '';
                         document.getElementById('mensaje2').innerHTML = 'Debe considerar transferir la llamada a 2nd line';
+                        document.getElementById('mensaje').innerHTML = " ";
                     }
                 }
                 // Iniciar el intervalo para actualizar el cronómetro cada segundo
