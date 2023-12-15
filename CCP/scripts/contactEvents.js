@@ -47,6 +47,35 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         var queueBorrable = contact.getQueue().name;
         document.getElementById("QueueText").innerHTML = queueBorrable;
+        var tiempoTranscurrido = 0;
+        // Función para actualizar el cronómetro y mostrar mensajes cada 30 segundos
+            // Función para actualizar el cronómetro
+            function actualizarCronometro() {
+                tiempoTranscurrido++;
+                document.getElementById('mensaje').innerHTML = `Ha transcurrido ${tiempoTranscurrido} segundos`;
+                // Verificar si ha pasado 30 segundos para mostrar un mensaje
+                if (tiempoTranscurrido === 30) {
+                    document.getElementById('mensaje1').innerHTML = 'Ha pasado 30 segundos';
+                }
+                // Verificar si ha pasado 1 minuto para mostrar otro mensaje
+                if (tiempoTranscurrido === 60) {
+                    document.getElementById('mensaje1').innerHTML = 'Ha 1 minuto, ya parele ,mejor cuelgue';
+                }
+                if (tiempoTranscurrido === 90) {
+                    document.getElementById('mensaje1').innerHTML = '';
+                    document.getElementById('mensaje2').innerHTML = 'Debe considerar transferir la llamada a 2nd line';
+                }
+            }
+            // Iniciar el intervalo para actualizar el cronómetro cada segundo
+            const intervalo = setInterval(actualizarCronometro, 1000);
+
+            // Detener el intervalo después de 2 minutos (120 segundos)
+            setTimeout(() => {
+                clearInterval(intervalo);
+            }, 120000); // 120,000 milisegundos = 2 minutos
+        
+        contabilizarTiempo();
+        // Iniciar la funció
     }
 
     function handleContactEnded(contact) {
