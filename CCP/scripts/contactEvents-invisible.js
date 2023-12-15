@@ -88,7 +88,7 @@ export default function (contact) {
             // Incrementar el tiempo transcurrido
                 tiempoTranscurrido++;
                 // Actualizar el contenido del contenedor
-                document.getElementById('cronometro').innerText = `Tiempo transcurrido: ${tiempoTranscurrido} segundos`;
+                document.getElementById('cronometro').innerText = `Tiempo transcurrido:${tiempoTranscurrido} segundos`;
                 // Verificar si han pasado 30 segundos para mostrar un mensaje
                 if (tiempoTranscurrido % 30 === 0) {
                     alert('Ha pasado 30 segundos');
