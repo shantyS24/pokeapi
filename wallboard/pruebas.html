@@ -1,25 +1,39 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <title>Mi página web</title>
     <style>
-
     </style>
-    <script>
-        function mostrarHora() {
-            var fecha = new Date();
-            var hora = fecha.getHours();
-            var minutos = fecha.getMinutes();
-            var segundos = fecha.getSeconds();
-            var tiempo = hora + ":" + minutos + ":" + segundos;
-            document.getElementById("reloj").innerHTML = tiempo;
-        }
-        setInterval(mostrarHora, 1000);
-    </script>
+
 </head>
+
 <body>
     <h1>Bienvenido a mi página web</h1>
     <p>Esta es una página de ejemplo.</p>
-    <div id="reloj"></div>
+    <div id="mensaje"></div>
 </body>
+<script src="pruebas.js"></script>
 </html>
+<!-- Path: wallboard/pruebas.html 
+    function showRandomMessages(messages) {
+        const randomMessages = [];
+        for (let i = 0; i < 5; i++) {
+            const randomIndex = Math.floor(Math.random() * messages.length);
+            randomMessages.push(messages[randomIndex]);
+        }
+        if (contact.handleContactDestroyed()) {
+            Swal.fire({
+                title: "Random Messages",
+                html: randomMessages.join("<br>"),
+                showCancelButton: false,
+                confirmButtonText: "Cerrar",
+                confirmButtonColor: "green",
+            });
+        }
+
+        const messages = ["Message 1", "Message 2", "Message 3", "Message 4", "Message 5", "Message 6"];
+        showRandomMessages(messages);
+    }
+
+-->
