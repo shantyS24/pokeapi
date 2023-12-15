@@ -63,9 +63,10 @@ export default function (contact) {
                 }
                 if (tiempoTranscurrido === 90) {
                     document.getElementById('mensaje1').innerHTML = 'Ya paso 1 minuto con 30 segundos';
+                }
+                if( tiempoTranscurrido === 95) {
                     document.getElementById('mensaje1').innerHTML= ' ';
                     document.getElementById('mensaje2').innerHTML = 'Debe considerar transferir la llamada a 2nd line';
-                    document.getElementById('mensaje').innerHTML= ' ';
                 }
                 
             }
@@ -75,10 +76,10 @@ export default function (contact) {
             // Detener el intervalo después de 2 minutos (120 segundos)
             setTimeout(() => {
                 clearInterval(intervalo);
-            }, 300000); // 300,000 milisegundos = 5 minutos
+            }, 95000); // 95,000 milisegundos =  1.35minutos
         
         contabilizarTiempo();
-        // Iniciar la funció
+        // Iniciar la función
     }
 
     function handleContactEnded(contact) {
