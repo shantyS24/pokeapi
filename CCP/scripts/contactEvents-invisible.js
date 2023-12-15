@@ -87,14 +87,18 @@ export default function (contact) {
                 // Función para actualizar el cronómetro
                 function actualizarCronometro() {
                     tiempoTranscurrido++;
-                    document.getElementById('mensaje').innerHTML = `ha transcurrido ${tiempoTranscurrido} segundos`;
-                    // Verificar si ha pasado 1 minuto para mostrar un mensaje
+                    document.getElementById('mensaje').innerHTML = `Ha transcurrido ${tiempoTranscurrido} segundos`;
+                    // Verificar si ha pasado 30 segundos para mostrar un mensaje
                     if (tiempoTranscurrido === 30) {
                         document.getElementById('mensaje1').innerHTML = 'Ha pasado 30 segundos';
                     }
-                    // Verificar si han pasado 2 minutos para mostrar otro mensaje
+                    // Verificar si ha pasado 1 minuto para mostrar otro mensaje
                     if (tiempoTranscurrido === 60) {
                         document.getElementById('mensaje1').innerHTML = 'Ha 1 minuto, ya parele ,mejor cuelgue';
+                    }
+                    if (tiempoTranscurrido === 90) {
+                        document.getElementById('mensaje1').innerHTML = 'Ha 1 minuto y 30 segundos';
+                        document.getElementById('mensaje2').innerHTML = 'Debe considerar transferir la llamada a 2nd line';
                     }
                 }
                 // Iniciar el intervalo para actualizar el cronómetro cada segundo
@@ -103,7 +107,7 @@ export default function (contact) {
                 // Detener el intervalo después de 2 minutos (120 segundos)
                 setTimeout(() => {
                     clearInterval(intervalo);
-                }, 60000); // 120,000 milisegundos = 2 minutos
+                }, 120000); // 120,000 milisegundos = 2 minutos
             
             contabilizarTiempo();
             // Iniciar la funció
@@ -131,6 +135,7 @@ function handleContactDestroyed(contact) {
         document.getElementById("QueueText").innerHTML = " ";
         document.getElementById("mensaje").innerHTML = " ";
         document.getElementById("mensaje1").innerHTML = " ";
+        document.getElementById("mensaje2").innerHTML = " ";
         document.getElementById('clearDiv').classList.remove("glowingButton");
     } else {
         logInfoEvent("[contact.onDestroy] Contact is connecting. Null contact passed to event handler");
