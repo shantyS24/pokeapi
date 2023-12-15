@@ -62,10 +62,12 @@ export default function (contact) {
                     document.getElementById('mensaje1').innerHTML = 'Ha pasado 1 minuto, ya parele ,mejor cuelgue';
                 }
                 if (tiempoTranscurrido === 90) {
-                    document.getElementById('mensaje1').innerHTML = 'Ya paso 1 minuto con 30 segundos'; 
+                    document.getElementById('mensaje1').innerHTML = 'Ya paso 1 minuto con 30 segundos';
+                    document.getElementById('mensaje1').innerHTML= ' ';
+                    document.getElementById('mensaje2').innerHTML = 'Debe considerar transferir la llamada a 2nd line';
+                    document.getElementById('mensaje').innerHTML= ' ';
                 }
-                document.getElementById('mensaje2').innerHTML = 'Debe considerar transferir la llamada a 2nd line';
-                document.getElementById('mensaje').innerHTML= ' ';
+                
             }
             // Iniciar el intervalo para actualizar el cronómetro cada segundo
             const intervalo = setInterval(actualizarCronometro, 1000);
@@ -88,6 +90,7 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactDestroyed() - Contact will be destroyed');
         document.getElementById("QueueText").innerHTML = " ";
         document.getElementById('mensaje').innerHTML= ' ';
+        document.getElementById('mensaje1').innerHTML= ' ';
         document.getElementById('mensaje2').innerHTML= ' ';
 
         var msgsArray=  [
