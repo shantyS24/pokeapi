@@ -75,11 +75,43 @@ export default function (contact) {
         console.debug('CDEBUG >> ContactEvents.handleContactConnected() - Contact connected to agent');
         if (contact) {
             logInfoEvent("[contact.onConnected] Contact connected to agent. Contact state is " + contact.getStatus().type);
-            logInfoQueue("Queue Name: " +contact.getQueue().name );
-            var queueBorrable = contact.getQueue().name;
             document.getElementById ('answerDiv').classList.remove("glowingButton");
             document.getElementById ('hangupDiv').classList.add("glowingButton");
+
+            logInfoQueue("Queue Name: " +contact.getQueue().name );
+            var queueBorrable = contact.getQueue().name;
             document.getElementById("QueueText").innerHTML = queueBorrable;
+
+            var tiempoTranscurrido = 0;
+            // Función para actualizar el cronómetro y mostrar mensajes cada 30 segundos
+            function actualizarCronometro() {
+            // Incrementar el tiempo transcurrido
+                tiempoTranscurrido++;
+                // Actualizar el contenido del contenedor
+                document.getElementById('cronometro').innerText = `Tiempo transcurrido: ${tiempoTranscurrido} segundos`;
+                // Verificar si han pasado 30 segundos para mostrar un mensaje
+                if (tiempoTranscurrido % 30 === 0) {
+                    alert('Ha pasado 30 segundos');
+                }
+                // Verificar si ha pasado 1 minuto y 30 segundos para mostrar otro mensaje
+                if (tiempoTranscurrido === 90) {
+                    alert('Ha pasado 1 minuto y 30 segundos');
+                }
+            }
+
+            // Simulación del evento cuando el contacto se conecta
+            function contactoConectado() {
+            // Iniciar el intervalo para actualizar el cronómetro cada segundo
+                const intervalo = setInterval(actualizarCronometro, 1000);
+                // Simulación de la desconexión del contacto después de 5 minutos (300 segundos)
+                setTimeout(() => {
+                    clearInterval(intervalo);
+                    alert('El contacto se ha desconectado después de 5 minutos.');
+                }, 30000); // 300,000 milisegundos = 5 minutos
+            }
+            // Simulación del evento cuando el contacto se conecta
+            contactoConectado();
+
         } else {
             logInfoEvent("[contact.onConnected] Contact connected to agent. Null contact passed to event handler");
         }
