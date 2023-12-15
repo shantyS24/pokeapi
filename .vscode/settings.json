@@ -1,6 +1,6 @@
 {
     "[html]": {
-        "editor.defaultFormatter": "Jota0222.multi-formatter"
+        "editor.defaultFormatter": "vscode.html-language-features"
     },
     "workbench.colorCustomizations": {}
 }
