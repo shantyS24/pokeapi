@@ -94,7 +94,7 @@ export default function (contact) {
                     }
                     // Verificar si han pasado 2 minutos para mostrar otro mensaje
                     if (tiempoTranscurrido === 60) {
-                        document.getElementById('mensaje2').innerHTML = 'Ha 1 minuto, ya parele ,mejor cuelgue';
+                        document.getElementById('mensaje1').innerHTML = 'Ha 1 minuto, ya parele ,mejor cuelgue';
                     }
                 }
                 // Iniciar el intervalo para actualizar el cronómetro cada segundo
@@ -131,7 +131,6 @@ function handleContactDestroyed(contact) {
         document.getElementById("QueueText").innerHTML = " ";
         document.getElementById("mensaje").innerHTML = " ";
         document.getElementById("mensaje1").innerHTML = " ";
-        document.getElementById("mensaje2").innerHTML = " ";
         document.getElementById('clearDiv').classList.remove("glowingButton");
     } else {
         logInfoEvent("[contact.onDestroy] Contact is connecting. Null contact passed to event handler");
