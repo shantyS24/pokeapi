@@ -73,7 +73,7 @@ export default function (contact) {
             // Detener el intervalo después de 2 minutos (120 segundos)
             setTimeout(() => {
                 clearInterval(intervalo);
-            }, 120000); // 120,000 milisegundos = 2 minutos
+            }, 300000); // 300,000 milisegundos = 5 minutos
         
         contabilizarTiempo();
         // Iniciar la funció
