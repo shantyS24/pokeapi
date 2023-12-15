@@ -97,7 +97,7 @@ export default function (contact) {
                         document.getElementById('mensaje1').innerHTML = 'Ha 1 minuto, ya parele ,mejor cuelgue';
                     }
                     if (tiempoTranscurrido === 90) {
-                        document.getElementById('mensaje1').innerHTML = 'Ha 1 minuto y 30 segundos';
+                        document.getElementById('mensaje1').innerHTML = '';
                         document.getElementById('mensaje2').innerHTML = 'Debe considerar transferir la llamada a 2nd line';
                     }
                 }
