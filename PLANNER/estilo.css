@@ -609,7 +609,8 @@ footer a {
 
 @media screen and (max-width: 800px) {
     .redes {
-        display: none;
+        position: absolute;
+        left: 300px;
     }
 
     nav {
