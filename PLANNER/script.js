@@ -39,3 +39,50 @@ function efectoHabilidades() {
     }
 
 }
+//Modales jajaja
+function mostrarModal(servicio) {
+    Swal.fire({
+        title: servicio,
+        text: obtenerTexto(servicio),
+        imageUrl: "https://unsplash.it/400/200",
+        imageWidth: 400,
+        imageHeight: 200,
+        imageAlt: "Custom image"
+    });
+}
+function obtenerImg(servicio){
+    switch (servicio) {
+        case 'Wedding Planner':
+            return "";
+        case 'Lugar':
+            return "";
+        case 'Mobiliario':
+            return "";
+        case 'Catering':
+            return "";
+        case 'Decoración':
+            return "";
+        case 'Sonido y Fotografía':
+            return "";
+        default:
+            return "";
+}
+}
+function obtenerTexto(servicio) {
+    switch (servicio) {
+        case 'Wedding Planner':
+            return "Transformamos sueños en eventos inolvidables. Deja que nuestro equipo de wedding planners te guíe en este viaje hacia tu día perfecto. Tu historia, nuestra pasión";
+        case 'Lugar':
+            return "Descubre el lugar donde los sueños toman forma. Un espacio único que se convierte en el lienzo perfecto para tu historia de amor. Bienvenido a un escenario que habla de ti.";
+        case 'Mobiliario':
+            return "Crea momentos inolvidables con nuestra colección de mobiliario elegante. Cada pieza es una declaración de estilo, transformando tu espacio en un escenario de ensueño.";
+        case 'Catering':
+            return "Seduce a tus invitados con una experiencia culinaria que despierta los sentidos. Nuestro catering va más allá de la comida; es una obra de arte para paladares exigentes.";
+        case 'Decoración':
+            return "Diseñamos emociones. Desde la delicadeza de los detalles hasta la grandeza de la ambientación, nuestra decoración convierte tu boda en una experiencia visual única.";
+        case 'Sonido y Fotografía':
+            return "Tu amor tiene su propia melodía, y nosotros la amplificamos con nuestra experiencia en sonido. Mientras cada nota resuena, nuestro equipo de fotógrafos captura instantes únicos, transformando tu día en una sinfonía visual de recuerdos inolvidables.";
+        default:
+            return "";
+    }
+}

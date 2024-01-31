@@ -4,19 +4,13 @@
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport"
-            content="width=device-width, initial-scale=1.0 user-scalable=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=no">
         <link rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
             integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
             crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link
-            href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap"
-            rel="stylesheet">
-        <link rel="stylesheet"
-            href="https://fonts.googleapis.com/css2?family=Brittany+Signature&display=swap">
-
         <link rel="stylesheet" href="estilo.css">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11">
         <title>PLANNER</title>
     </head>
 
@@ -51,22 +45,28 @@
                         </div>
 
                         <div class="redes">
-                            <a href="https://api.whatsapp.com/send?phone=573246571679&text=Hola%20Planner%20quisiera%20saber%20m%C3%A1s%20sobre%20tus%20servicios!%20Espero%20tu%20respuesta%20ok%20%F0%9F%98%8E"><i class="fa-brands fa-whatsapp"></i></a>
-                            <a href="https://www.facebook.com/profile.php?id=100082365325454"><i class="fa-brands fa-facebook"></i></a>
-                            <a href="https://www.instagram.com/plannersandygeorge?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram-square"></i></a>
+                            <a id="whatsapp"
+                                href="https://api.whatsapp.com/send?phone=573246571679&text=Hola%20Planner%20quisiera%20saber%20m%C3%A1s%20sobre%20tus%20servicios!%20Espero%20tu%20respuesta%20ok%20%F0%9F%98%8E"
+                                target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                            <a id="facebook"
+                                href="https://www.facebook.com/profile.php?id=100082365325454" target="_blank">
+                                <i class="fa-brands fa-facebook"></i></a>
+                            <a id="instagram"
+                                href="https://www.instagram.com/plannersandygeorge?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                                target="_blank"><i class="fa-brands fa-instagram"></i></a>
                         </div>
                     </div>
                 </header>
                 <div class="presentacion">
                     <!-- Contenedor del video -->
-                    <div id="video-container">
+                    <!-- <div id="video-container">
                         <video id="video-background" autoplay muted loop>
-                        <!--  <source src="./video/video1.mp4" type="video/mp4">
-                            Tu navegador no soporta el elemento de video.-->
+                            <source src="./video/video1.mp4" type="video/mp4">
+                            Tu navegador no soporta el elemento de video.
                         </video>
-                    </div>
+                    </div>-->
                     <p class="bienvenida">Bienvenidos a:</p>
-                    <h2><span>PLANNER</span></h2>
+                    <h2 id="name"><span>PLANNER</span></h2>
                     <p class="descripcion">"En PLANNER transformamos tus ideas en momentos inolvidables. Cada boda es única y especial,al igual que nuestros servicios."</p>
                     <a href="#portfolio">NUESTRAS BODAS</a>
                 </div>
@@ -76,20 +76,32 @@
         <!-- SECCION S O B R E M I -->
         <section id="sobremi">
             <div class="contenedor-foto">
-                <img src="./imgs/photo2.jpg" alt>
+                
             </div>
             <div class="sobremi">
                 <p class="titulo-seccion">Sobre Nosotros</p>
                 <h2>Hola, Somos <span>Sandy & George</span> </h2>
                 <h3>Wedding planners Elopement</h3>
                 <p>
-                    En el corazón de 'Planner', nos encuentras a nosotros: Sandy y George, dos almas enamoradas que han decidido convertirse en los protagonistas detrás de las más hermosas historias de amor. Nuestra misión es transformar cada boda en un capítulo inolvidable.
+                    En el corazón de 'Planner', nos encuentras a nosotros: Sandy
+                    y George, dos almas enamoradas que han decidido convertirse
+                    en los protagonistas detrás de las más hermosas historias de
+                    amor. Nuestra misión es transformar cada boda en un capítulo
+                    inolvidable.
                 </p>
                 <p>
-                    En 'Planner', cada boda es un eco de nuevos comienzos. Nosotros, como pareja que ha abrazado la travesía del matrimonio, entendemos la importancia de cada paso. Estamos aquí para guiar a otras parejas en su propio viaje extraordinario.
+                    En 'Planner', cada boda es un eco de nuevos comienzos.
+                    Nosotros, como pareja que ha abrazado la travesía del
+                    matrimonio, entendemos la importancia de cada paso. Estamos
+                    aquí para guiar a otras parejas en su propio viaje
+                    extraordinario.
                 </p>
                 <p>
-                    Somos más que planificadores; somos creadores de sueños hechos realidad. 'Planner' es el lienzo donde pintamos momentos que capturan la esencia de cada pareja. Estamos comprometidos a hacer que cada boda sea tan única como la historia de amor que celebra
+                    Somos más que planificadores; somos creadores de sueños
+                    hechos realidad. 'Planner' es el lienzo donde pintamos
+                    momentos que capturan la esencia de cada pareja. Estamos
+                    comprometidos a hacer que cada boda sea tan única como la
+                    historia de amor que celebra
                 </p>
                 <!--<a href="#">Descargar</a>-->
             </div>
@@ -99,55 +111,59 @@
         <section id="servicios">
             <h3 class="titulo-seccion">NUESTROS SERVICIOS</h3>
             <br>
-            <p>"¡En PLANNER, tu boda es más que un evento, es tu marca personal de amor! <br> Deja que nuestros expertos hagan que cada momento sea inolvidable."</p>
+            <p id="info">"¡En PLANNER, tu boda es más que un evento, es tu marca personal
+                de amor! <br> Deja que nuestros expertos hagan que cada momento
+                sea inolvidable."</p>
             <div class="fila">
-                <div class="servicio">
+                <div class="servicio" onclick="mostrarModal('Wedding Planner')">
                     <span class="icono"> <i class="fa-solid fa-code"></i></span>
                     <h4>Wedding Planner</h4>
                     <hr>
-                    <p>Transformamos sueños en eventos inolvidables. Deja que nuestro equipo de wedding planners te guíe en este viaje hacia tu día perfecto. Tu historia, nuestra pasión </p>
-                    </div>
-                <div class="servicio">
+                    <button onclick="mostrarModal('Wedding Planner')">Ver
+                        Detalles</button>
+                </div>
+                <div class="servicio" onclick="mostrarModal('Lugar')">
                     <span class="icono"><i
                             class="fa-solid fa-file-code"></i></span>
                     <h4>Lugar</h4>
                     <hr>
-                    <p>Descubre el lugar donde los sueños toman forma. Un espacio único que se convierte en el lienzo perfecto para tu historia de amor. Bienvenido a un escenario que habla de ti.
-                    </p>
+                    <button onclick="mostrarModal('Lugar')">Ver
+                        Detalles</button>
                 </div>
-                <div class="servicio">
+                <div class="servicio" onclick="mostrarModal('Mobiliario')">
                     <span class="icono"><i
                             class="fa-solid fa-arrow-trend-up"></i></span>
                     <h4>Mobiliario</h4>
                     <hr>
-                    <p>Crea momentos inolvidables con nuestra colección de mobiliario elegante. Cada pieza es una declaración de estilo, transformando tu espacio en un escenario de ensueño.
-                    </p>
+                    <button onclick="mostrarModal('Mobiliario')">Ver
+                        Detalles</button>
                 </div>
             </div>
             <div class="fila">
-                <div class="servicio">
+                <div class="servicio" onclick="mostrarModal('Catering')">
                     <span class="icono"><i
                             class="fa-solid fa-database"></i></span>
                     <h4>Catering</h4>
                     <hr>
-                    <p>Seduce a tus invitados con una experiencia culinaria que despierta los sentidos. Nuestro catering va más allá de la comida; es una obra de arte para paladares exigentes.
-                    </p>
+                    <button onclick="mostrarModal('Catering')">Ver
+                        Detalles</button>
                 </div>
-                <div class="servicio">
+                <div class="servicio" onclick="mostrarModal('Decoración')">
                     <span class="icono"><i
                             class="fa-solid fa-palette"></i></span>
                     <h4>Decoración</h4>
                     <hr>
-                    <p>Diseñamos emociones. Desde la delicadeza de los detalles hasta la grandeza de la ambientación, nuestra decoración convierte tu boda en una experiencia visual única.
-                    </p>
+                    <button onclick="mostrarModal('Decoración')">Ver
+                        Detalles</button>
                 </div>
-                <div class="servicio">
+                <div class="servicio"
+                    onclick="mostrarModal('Sonido y Fotografía')">
                     <span class="icono"><i
                             class="fa-solid fa-person-circle-question"></i></span>
                     <h4>Sonido y Fotografia</h4>
                     <hr>
-                    <p>Tu amor tiene su propia melodía, y nosotros la amplificamos con nuestra experiencia en sonido. Mientras cada nota resuena, nuestro equipo de fotógrafos captura instantes únicos, transformando tu día en una sinfonía visual de recuerdos inolvidables.
-                    </p>
+                    <button onclick="mostrarModal('Sonido y Fotografía')">Ver
+                        Detalles</button>
                 </div>
             </div>
         </section>
@@ -187,7 +203,8 @@
             </div>
             <div class="skill">
                 <div class="info">
-                    <p> <span class="lista"> </span>Innovación Sostenible en Acción</p>
+                    <p> <span class="lista"> </span>Innovación Sostenible en
+                        Acción</p>
                     <span class="porcentaje">85%</span>
                 </div>
 
@@ -280,7 +297,7 @@
             </div>
         </section>
 
-        <!-- SECCTION C O N T A C T O -->
+        <!-- SECCTION C O N T A C T O 
         <section id="contacto">
             <h3 class="titulo-seccion">Contactanos ahora</h3>
             <div class="contenedor-form">
@@ -306,18 +323,24 @@
                 </form>
             </div>
         </section>
-
+-->
         <!-- SECCION FOOTER -->
         <footer>
             <p>Copyright Planner SandyGeorge- 2024</p>
-            <div class="redes">
-                <a href="https://api.whatsapp.com/send?phone=573246571679&text=Hola%20Planner%20quisiera%20saber%20m%C3%A1s%20sobre%20tus%20servicios!%20Espero%20tu%20respuesta%20ok%20%F0%9F%98%8E"><i class="fa-brands fa-whatsapp"></i></a>
-                <a href="https://www.facebook.com/profile.php?id=100082365325454"><i class="fa-brands fa-facebook"></i></a>
-                <a href="https://www.instagram.com/plannersandygeorge?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fa-brands fa-instagram-square"></i></a>
+            <div class="redes2">
+                <a id="whatsapp"
+                    href="https://api.whatsapp.com/send?phone=573246571679&text=Hola%20Planner%20quisiera%20saber%20m%C3%A1s%20sobre%20tus%20servicios!%20Espero%20tu%20respuesta%20ok%20%F0%9F%98%8E"
+                    target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a id="facebook"
+                    href="https://www.facebook.com/profile.php?id=100082365325454"
+                    target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                <a id="instagram"
+                    href="https://www.instagram.com/plannersandygeorge?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
+                    target="_blank"><i class="fa-brands fa-instagram"></i></a>
             </div>
-
         </footer>
-
+        <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="script.js"></script>
     </body>
 
